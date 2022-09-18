@@ -6,7 +6,7 @@ import classes from "./typography.module.scss";
 
 interface ITypography {
   className?: string;
-  children: string;
+  children: React.ReactNode;
 
   type?: "extra-small" | "small" | "normal" | "large" | "extra-large";
   color?: Color;
