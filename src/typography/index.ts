@@ -1,1 +1,0 @@
-import { Typography } from './typography.component';

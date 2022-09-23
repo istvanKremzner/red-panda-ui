@@ -1,62 +1,18 @@
-import styled from "styled-components";
-import { Card } from "./card";
-import { ThemeSwitcherButton } from "./theme/theme-switcher-button.component";
-import { Typography } from "./typography/typography.component";
+import styled from 'styled-components';
+import MyButton from './lib/MyButton';
 
 function App() {
-  return (
-    <Wrapper>
-      <Card>
-        <Typography type="extra-small" color="secondary">
-          XS
-        </Typography>
-
-        <Typography type="small" color="success">
-          S
-        </Typography>
-        <Typography>M</Typography>
-        <Typography type="large" color="info">
-          L
-        </Typography>
-        <Typography type="extra-large" color="warning">
-          XL
-        </Typography>
-        <Typography type="extra-large" color="error">
-          XL
-        </Typography>
-      </Card>
-
-      <Card>
-        <Typography highlighted type="extra-small" color="secondary">
-          XS
-        </Typography>
-
-        <Typography highlighted type="small" color="success">
-          S
-        </Typography>
-        <Typography highlighted>M</Typography>
-        <Typography highlighted type="large" color="info">
-          L
-        </Typography>
-        <Typography highlighted type="extra-large" color="warning">
-          XL
-        </Typography>
-        <Typography highlighted type="extra-large" color="error">
-          XL
-        </Typography>
-      </Card>
-
-      <ThemeSwitcherButton />
-    </Wrapper>
-  );
+    return (
+        <Wrapper>
+            <MyButton>Click me</MyButton>
+        </Wrapper>
+    );
 }
 
-const Wrapper = styled.main`
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+const Wrapper = styled.div`
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
 `;
 
 export default App;
