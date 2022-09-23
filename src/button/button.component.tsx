@@ -5,7 +5,7 @@ import { FC } from "react";
 import classes from "./button.module.scss";
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  color?: Color;
+  color: Color;
   small?: boolean;
   large?: boolean;
   fullWidth?: boolean;
