@@ -1,10 +1,11 @@
+import styled from "styled-components";
 import { Card } from "./card";
 import { ThemeSwitcherButton } from "./theme/theme-switcher-button.component";
 import { Typography } from "./typography/typography.component";
 
 function App() {
   return (
-    <main>
+    <Wrapper>
       <Card>
         <Typography type="extra-small" color="secondary">
           XS
@@ -46,8 +47,16 @@ function App() {
       </Card>
 
       <ThemeSwitcherButton />
-    </main>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.main`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default App;
