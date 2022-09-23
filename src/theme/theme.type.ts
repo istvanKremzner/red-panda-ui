@@ -1,32 +1,46 @@
 export interface ITheme {
-  primary: PaletteColor;
-  secondary: PaletteColor;
-  error: PaletteColor;
-  warning: PaletteColor;
-  info: PaletteColor;
-  success: PaletteColor;
-  common: CommonColors;
-  text: ITextOptions;
-  divider: string;
-  background: IBackgroundOptions;
+    breakpoints: Record<Breakpoints, number>
 
-  //  mode?: PaletteMode;
-  //  action?: Partial<TypeAction>;
-  //  getContrastText?: (background: string) => string;
+    primary: PaletteColor;
+    secondary: PaletteColor;
+    error: PaletteColor;
+    warning: PaletteColor;
+    info: PaletteColor;
+    success: PaletteColor;
+    common: Record<CommonColors, string>;
+    text: ITextOptions;
+    divider: string;
+    background: IBackgroundOptions;
+
+    //  mode?: PaletteMode;
+    //  action?: Partial<TypeAction>;
+    //  getContrastText?: (background: string) => string;
 }
 
 interface PaletteColor {
-  light?: string;
-  main: string;
-  dark?: string;
-  contrastText?: string;
+    light: string;
+    main: string;
+    dark: string;
+    contrastText: string;
 }
 
 interface ITextOptions {
-  primary: string;
-  secondary: string;
+    primary: string;
+    secondary: string;
+    disabled: string
 }
 
-interface IBackgroundOptions {}
+interface IBackgroundOptions {
+    default: string;
+    paper: string;
+}
+
+
+type Breakpoints =
+    'xs' |
+    'sm' |
+    'md' |
+    'lg' |
+    'xl';
 
 type CommonColors = "black" | "white";

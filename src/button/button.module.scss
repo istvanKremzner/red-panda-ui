@@ -1,0 +1,101 @@
+$button-action-transition-time: 0.3s;
+
+.container {
+    --button-color: var(--theme-primary-main);
+    --button-text-color: var(--theme-text-inverted);
+
+    width: max-content;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4rem;
+    color: var(--button-text-color);
+    background-color: var(--button-color);
+
+    &:hover {
+        .button {
+            transition: color $button-action-transition-time;
+            filter: brightness(1);
+        }
+
+        box-shadow: 0 4px 22px 0 var(--button-color);
+    }
+
+    &:active {
+        filter: brightness(1.15);
+        box-shadow: 0 4px 33px 0 var(--button-color);
+
+        .activeBackground {
+            left: 0;
+            visibility: visible;
+        }
+
+        .button {
+            color: var(--button-color);
+        }
+    }
+
+    &.fullWidth {
+        width: 100%;
+    }
+
+    &.primary {
+        --button-color: var(--theme-primary-main);
+    }
+
+    &.secondary {
+        --button-color: var(--theme-secondary-main);
+    }
+
+    &.success {
+        --button-color: var(--theme-success-main);
+    }
+
+    &.info {
+        --button-color: var(--theme-info-main);
+    }
+
+    &.warning {
+        --button-color: var(--theme-warning-main);
+    }
+
+    &.error {
+        --button-color: var(--theme-error-main);
+    }
+
+    .button {
+        border: none;
+        border-radius: inherit;
+        padding: 1rem 2rem;
+        background-color: transparent;
+        font-size: 1.1rem;
+        color: inherit;
+
+        &.small {
+            font-size: 0.8rem;
+            padding: 0.5rem 1.5rem;
+        }
+
+        &.large {
+            font-size: 1.4rem;
+            padding: 1.5rem 4rem;
+        }
+
+        &.fullWidth {
+            width: 100%;
+        }
+    }
+
+    .activeBackground {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        content: " ";
+        transition: all $button-action-transition-time;
+        border-radius: inherit;
+
+        visibility: hidden;
+        background-color: var(--button-text-color);
+    }
+}
