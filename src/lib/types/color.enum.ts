@@ -8,6 +8,4 @@ export type AlertColor =
     'warning' |
     'error'
 
-export type AlertType = AlertColor
-
 export type Color = MainColor | AlertColor

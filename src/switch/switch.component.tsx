@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { FC, useCallback, useRef, useState } from "react";
 import classes from "./switch.module.scss";
 
-export interface ISwitchProps {
+interface ISwitch {
   color?: Color;
   className?: string;
   containerClassName?: string;
@@ -12,7 +12,7 @@ export interface ISwitchProps {
   large?: boolean;
 }
 
-export const Switch: FC<ISwitchProps> = ({
+export const Switch: FC<ISwitch> = ({
   color = "primary",
   className,
   containerClassName,

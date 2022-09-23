@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
     framework: '@storybook/react',
     stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -11,22 +9,6 @@ module.exports = {
         storyStoreV7: true,
     },
     async viteFinal(config) {
-        return {
-            ...config,
-            resolve: {
-                ...config.resolve,
-                alias: {
-                    ...config.resolve.alias,
-                    '@': path.resolve(__dirname, "../src"),
-                },
-            },
-            css: {
-                preprocessorOptions: {
-                    scss: {
-                        additionalData: `@import "@/theme/mixins";`
-                    },
-                },
-            },
-        };
+        return config;
     },
 };

@@ -1,11 +1,7 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback } from "react";
 
 export const useThemeToggler = () => {
-    const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'))
-    const toggle = useCallback(() => {
-        document.documentElement.classList.toggle("dark")
-        setIsDark(!isDark)
-    }, []);
+    const toggle = useCallback(() => document.documentElement.classList.toggle("dark"), []);
 
-    return { isDark, toggle }
+    return { toggle }
 }

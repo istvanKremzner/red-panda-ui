@@ -1,5 +1,3 @@
-$button-action-transition-time: 0.3s;
-
 .container {
     --button-color: var(--theme-primary-main);
     --button-text-color: var(--theme-text-inverted);
@@ -13,7 +11,7 @@ $button-action-transition-time: 0.3s;
 
     &:hover {
         .button {
-            transition: color $button-action-transition-time;
+            transition: color 0.35s;
             filter: brightness(1);
         }
 
@@ -92,7 +90,7 @@ $button-action-transition-time: 0.3s;
         width: 100%;
         height: 100%;
         content: " ";
-        transition: all $button-action-transition-time;
+        transition: all 0.35s;
         border-radius: inherit;
 
         visibility: hidden;
