@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 interface IChipProps {
   color: Color;
-  children?: React.ReactNode;
+  children: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
@@ -13,17 +13,14 @@ export const Chip: FC<IChipProps> = ({
   color,
   children,
   onClick,
-}) => {
-  console.log({ onClick })
-  return (
-    <div className={clsx(
-      classes.chip,
-      classes[color],
-      onClick && classes.clickable,
-    )}
-      onClick={onClick}
-    >
-      {children}
-    </div>
-  )
-}
+}) => (
+  <div className={clsx(
+    classes.chip,
+    classes[color],
+    onClick && classes.clickable,
+  )}
+    onClick={onClick}
+  >
+    {children}
+  </div>
+)
