@@ -9,7 +9,7 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   small?: boolean;
   large?: boolean;
   fullWidth?: boolean;
-  children?: React.ReactNode;
+  children: React.ReactNode;
   containerClassName?: string;
 }
 
