@@ -1,0 +1,49 @@
+.chip {
+  --chip-color: #ffff;
+  --chip-text-color: rgb(119, 117, 117);
+
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 4px 16px;
+  border: 2px solid var(--chip-text-color);
+  border-radius: 2rem;
+  background-color: var(--chip-color);
+  color: var(--chip-text-color);
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  &.primary {
+    --chip-text-color: var(--theme-primary-main);
+  }
+
+  &.secondary {
+    --chip-text-color: var(--theme-secondary-main);
+  }
+
+  &.success {
+    --chip-text-color: var(--theme-success-main);
+  }
+
+  &.info {
+    --chip-text-color: var(--theme-info-main);
+  }
+
+  &.warning {
+    --chip-text-color: var(--theme-warning-main);
+  }
+
+  &.error {
+    --chip-text-color: var(--theme-error-main);
+  }
+}
+
+@include dark {
+  .chip {
+    --chip-color: black;
+    --chip-text-color: var(--theme-text-primary);
+    filter: brightness(0.9);
+  }
+
+}
