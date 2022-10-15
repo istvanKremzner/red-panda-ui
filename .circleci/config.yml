@@ -1,0 +1,71 @@
+version: 2.1
+jobs:
+  Setup-Project:
+    docker:
+      - image: cimg/node:16.17.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD # context / project UI env-var reference
+    steps:
+      - checkout
+      - run:
+          name: Setting up the project environment
+          command: |
+            npm ci
+            node -v
+
+  Build:
+    docker:
+      - image: cimg/node:16.17.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - run:
+          name: Building the project
+          command: |
+            npm ci
+            npm run build
+  Test:
+    docker:
+      - image: cimg/node:16.17.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - run:
+          name: Running the unit tests
+          command: |
+            npm ci
+            npm run test:ci
+
+workflows:
+  Build-Workflow:
+    jobs:
+      - Setup-Project
+      - Build:
+          requires:
+            - Setup-Project
+      - Test:
+          requires:
+            - Setup-Project
+  Publish-Workflow-Tagged:
+    jobs:
+      - Setup-Project
+      - Build:
+          requires:
+            - Setup-Project
+      - Test:
+          requires:
+            - Setup-Project
+  Publish-Workflow:
+    jobs:
+      - Setup-Project
+      - Build:
+          requires:
+            - Setup-Project
+      - Test:
+          requires:
+            - Setup-Project

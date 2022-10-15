@@ -21,9 +21,16 @@ module.exports = {
                 },
             },
             css: {
+                ...config.css,
+                modules: {
+                    ...config.css?.modules,
+                    localsConvention: "camelCaseOnly",
+                },
                 preprocessorOptions: {
+                    ...config.css?.preprocessorOptions,
                     scss: {
-                        additionalData: `@import "@/theme/mixins";`
+                        ...config.css?.preprocessorOptions?.scss,
+                        additionalData: `@import "@/theme/mixins";`,
                     },
                 },
             },
